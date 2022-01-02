@@ -1,0 +1,10 @@
+ErrorDocument 403 https://albinpraveen.ml/404
+ErrorDocument 404 https://albinpraveen.ml/404
+ErrorDocument 500 https://albinpraveen.ml/500
+
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{QUERY_STRING} ^(.*)i=[^&]+(.*)$ [NC]
+RewriteRule ^(.*)$ /$1?%1%2 [R=301,L]
