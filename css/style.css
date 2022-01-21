@@ -1586,19 +1586,19 @@ img{
 .pp-viewing-Contact .logo-light,
 .pp-viewing-Home .logo-light,
 .pp-viewing-Resume .logo-light,
-.pp-viewing-News .logo-dark,
+.pp-viewing-Projects .logo-dark,
 .pp-viewing-Portfolio .logo-light,
 .pp-viewing-Pricing .logo-light,
 .pp-viewing-Testimonials .logo-dark,
-.pp-viewing-Services .logo-dark,
+.pp-viewing-Skills .logo-dark,
 .pp-viewing-About .logo-dark{
 	display: block;
 }
 
 .pp-viewing-Pricing .logo-dark,
-.pp-viewing-News .logo-light,
+.pp-viewing-Projects .logo-light,
 .pp-viewing-Testimonials .logo-light,
-.pp-viewing-Services .logo-light,
+.pp-viewing-Skills .logo-light,
 .pp-viewing-About .logo-light,
 .logo-dark{
 	display: none;
