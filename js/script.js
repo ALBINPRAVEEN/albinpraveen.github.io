@@ -328,12 +328,12 @@
 	if($('#pagepiling').length) {
 	    $('#pagepiling').pagepiling({
 	        menu: '#menu',
-	        anchors: ['Home', 'About', 'Resume', 'Services','Portfolio','News', 'Pricing', 'Testimonials', 'Contact'],
+	        anchors: ['Home', 'About', 'Resume', 'Skills','Certifications',  'Projects' , 'Contact'],
 	        direction: 'vertical',
 	        keyboardScrolling:false,
 	        navigation: {
 	            'position': 'left',
-	            'tooltips': ['Home', 'About', 'Resume', 'Services', 'Portfolio', 'News', 'Pricing', 'Testimonials', 'Contact']
+	            'tooltips': ['Home', 'About', 'Resume', 'Skills', 'Certifications', 'Projects','Contact']
 	        },
 	        
 	        afterLoad: function(anchorLink, index){
