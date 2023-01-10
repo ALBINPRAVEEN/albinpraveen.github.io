@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>THANK YOU</title>
+      <link rel="icon" href="https://albinpraveen.is-a.dev/images/favicon.png">
+      <link rel="stylesheet" href="thankyou.css">
+   </head>
+   <body>
+      <div id="error-page">
+         <div class="content">
+            <h2 class="header" data-text="THANK YOU">
+               THANK YOU
+            </h2>
+            <h4 data-text="Opps! Page not found">
+               Your message has been sent successfully
+            </h4>
+            <p>
+                I'll be in touch with you as soon as possible.
+            </p>
+            <div class="btns">
+               <a href="https://albinpraveen.is-a.dev/#Contact">return home</a>
+               <a href="https://instagram.com/i_am_albin_praveen">report problem</a>
+            </div>
+         </div>
+      </div>
+      <script>
+         const disabledKeys = ["c", "C", "x", "u", "I"]; // keys that will be disabled
+       
+         const showAlert = e => {
+           e.preventDefault(); // preventing its default behaviour
+           return alert("Right click is disabled - ALBIN PRAVEEN");
+         }
+       
+         document.addEventListener("contextmenu", e => {
+           showAlert(e); // calling showAlert() function on mouse right click
+         });
+       
+         document.addEventListener("keydown", e => {
+           // calling showAlert() function, if the pressed key matched to disabled keys
+           if(e.ctrlKey && disabledKeys.includes(e.keyCode) || e.key === "F12") {
+             showAlert(e);
+           }
+         });
+       </script>
+   </body>
+</html>
