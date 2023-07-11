@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://albinpraveen.eu.org/sitemap.xml
