@@ -3,23 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uptime Robot Dashboard</title>
+    <title>Uptime Status</title>
     <style>
-        /* Ensure the iframe takes up the entire page */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
         }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        .status {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .up {
+            background-color: #28a745;
+            color: white;
+        }
+        .down {
+            background-color: #dc3545;
+            color: white;
         }
     </style>
 </head>
 <body>
-    <iframe src="https://stats.uptimerobot.com/0oKNoukjZ2" title="Uptime Robot Dashboard"></iframe>
+
+    <h1>Your Uptime Status</h1>
+    <div id="monitor-status"></div>
+
+    <script>
+        // Your UptimeRobot API key
+        const apiKey = 'm798160255-a49617a8d98c8690fb013192'; // Replace with your actual API key
+        
+        async function fetchUptimeData() {
+            const response = await fetch('https://api.uptimerobot.com/v2/getMonitors', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    api_key: apiKey,
+                    format: 'json'
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                console.error('Error fetching uptime data:', data.error.message);
+                return;
+            }
+
+            const monitors = data.monitors;
+            const statusDiv = document.getElementById('monitor-status');
+
+            monitors.forEach(monitor => {
+                const statusElement = document.createElement('div');
+                statusElement.classList.add('status');
+                
+                // Monitor name and status
+                const statusText = monitor.status === 2 ? 'Up' : 'Down';
+                statusElement.classList.add(statusText.toLowerCase());
+
+                statusElement.innerHTML = `
+                    <strong>${monitor.friendly_name}</strong><br>
+                    Status: ${statusText}
+                `;
+
+                statusDiv.appendChild(statusElement);
+            });
+        }
+
+        // Fetch and display the uptime data
+        fetchUptimeData();
+    </script>
+
 </body>
 </html>
